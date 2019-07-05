@@ -7,9 +7,10 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 
-private const val BASE_URL = ""
+private const val BASE_URL = "https://api.themoviedb.org/3/movie/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -24,8 +25,8 @@ private val retrofit = Retrofit.Builder()
 
 interface MoviesApiService {
 
-    @GET("")
-    fun getPopularMovies():Deferred<List<MovieResponse>>
+    @GET("top_rated")
+    fun getPopularMovies(@Query("api_key") apiKey:String):Deferred<List<MovieResponse>>
 
 }
 

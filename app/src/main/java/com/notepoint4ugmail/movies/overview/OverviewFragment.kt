@@ -31,6 +31,7 @@ class OverviewFragment : Fragment() {
         binding.overviewModel = overviewViewModel
         binding.lifecycleOwner = this
 
+        binding.movieRecycler.adapter = OverviewAdapter()
 
 
 
