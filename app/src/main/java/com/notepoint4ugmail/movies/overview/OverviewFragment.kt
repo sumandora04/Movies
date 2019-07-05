@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.notepoint4ugmail.movies.R
 import com.notepoint4ugmail.movies.databinding.FragmentOverviewBinding
@@ -31,7 +33,15 @@ class OverviewFragment : Fragment() {
         binding.overviewModel = overviewViewModel
         binding.lifecycleOwner = this
 
-        binding.movieRecycler.adapter = OverviewAdapter()
+        val adapter = OverviewAdapter(OverviewAdapter.MovieClickListener{
+            Toast.makeText(context,"Movie: ${it.movieTitle}",Toast.LENGTH_SHORT).show()
+        })
+
+        binding.movieRecycler.adapter = adapter
+
+        overviewViewModel.moviesList.observe(this, Observer {
+            adapter.submitList(it)
+        })
 
 
 

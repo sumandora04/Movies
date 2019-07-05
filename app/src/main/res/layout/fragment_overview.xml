@@ -26,6 +26,7 @@
                 app:spanCount="2"
                 android:clipToPadding="false"
                 android:padding="6dp"
+
                 tools:itemCount="16"
                 tools:listitem="@layout/movie_grid_cell"
                 android:id="@+id/movie_recycler"/>

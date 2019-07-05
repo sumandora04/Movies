@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tool="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable name="movieData"
-                  type="com.notepoint4ugmail.movies.network.MovieResponse"/>
-    </data>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tool="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:padding="2dp"
-                android:id="@+id/grid_image_cell"
-                android:scaleType="centerCrop"
-                tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+	<data>
+		<variable
+				name="movieData"
+				type="com.notepoint4ugmail.movies.network.Movie"/>
+	</data>
 
-    </LinearLayout>
+	<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="200dp">
+
+		<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:adjustViewBounds="true"
+				android:padding="2dp"
+				android:id="@+id/grid_image_cell"
+				android:scaleType="centerCrop"
+
+				tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+
+	</LinearLayout>
 </layout>
