@@ -7,6 +7,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 
@@ -25,8 +26,11 @@ private val retrofit = Retrofit.Builder()
 
 interface MoviesApiService {
 
-    @GET("movie/top_rated")
-    fun getPopularMovies(@Query("api_key") apiKey:String):Deferred<MovieResponse>
+    @GET("movie/{movie_type}")
+    fun getPopularMovies(
+        @Path("movie_type", encoded = true) type:String,
+        @Query("api_key") apiKey:String)
+            :Deferred<MovieResponse>
 
 }
 
@@ -34,4 +38,11 @@ object MovieApi{
     val retrofitService:MoviesApiService by lazy {
         retrofit.create(MoviesApiService::class.java)
     }
+}
+
+enum class MovieTypes(val value:String){
+    SHOW_POPULAR("popular"),
+    SHOW_TOP("top_rated"),
+    SHOW_UPCOMING("upcoming"),
+    SHOW_NOW_PLAYING("now_playing")
 }

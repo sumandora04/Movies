@@ -10,6 +10,9 @@
     </fragment>
     <fragment android:id="@+id/detailFragment" android:name="com.notepoint4ugmail.movies.detail.DetailFragment"
               android:label="fragment_detail" tools:layout="@layout/fragment_detail">
-        <argument android:name="selectedMovie" app:argType="com.notepoint4ugmail.movies.network.MovieResponse"/>
+        <argument
+                android:name="selectedMovie"
+                app:argType="com.notepoint4ugmail.movies.network.Movie"
+                />
     </fragment>
 </navigation>

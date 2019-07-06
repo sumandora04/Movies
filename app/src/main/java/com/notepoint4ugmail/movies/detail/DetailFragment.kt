@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 
-import com.notepoint4ugmail.movies.R
 import com.notepoint4ugmail.movies.databinding.FragmentDetailBinding
 
 /**
@@ -28,9 +27,9 @@ class DetailFragment : Fragment() {
         binding = FragmentDetailBinding.inflate(inflater)
 
         val application = requireNotNull(activity).application
-        val movieResponse = DetailFragmentArgs.fromBundle(arguments!!).selectedMovie
+        val movie = DetailFragmentArgs.fromBundle(arguments!!).selectedMovie
 
-        val viewModelFactory = DetailViewModelFactory(movieResponse, application)
+        val viewModelFactory = DetailViewModelFactory(movie, application)
         detailViewModel = ViewModelProviders.of(this, viewModelFactory).get(DetailViewModel::class.java)
 
         binding.detailViewModel = detailViewModel

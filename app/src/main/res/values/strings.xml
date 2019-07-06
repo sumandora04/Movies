@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Movies</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="release_date_format">Release date: %s</string>
+    <string name="language_format">Language: %s</string>
+    <string name="rating_format">Rating: %s</string>
+    <string name="overview_format"><b>Overview:\n</b>%s</string>
 </resources>

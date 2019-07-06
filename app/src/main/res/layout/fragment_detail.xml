@@ -17,7 +17,7 @@
                     android:layout_width="0dp"
                     android:scaleType="centerCrop"
                     android:padding="4dp"
-                    android:layout_height="200dp"
+                    android:layout_height="500dp"
                     tools:src="@tools:sample/backgrounds/scenic[15]"
                     android:id="@+id/movie_poster_imageView"
                     android:layout_marginTop="8dp"
@@ -25,11 +25,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:imageBinding="@{detailViewModel.selectedMovie.posterPath}"
                     android:layout_marginEnd="8dp"/>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/movie_name"
+                    android:text="@{detailViewModel.movieTitle}"
                     app:layout_constraintStart_toStartOf="@+id/movie_poster_imageView"
                     app:layout_constraintEnd_toEndOf="@+id/movie_poster_imageView"
                     android:layout_marginTop="8dp"
@@ -43,12 +45,14 @@
                     app:layout_constraintStart_toStartOf="@+id/movie_name"
                     app:layout_constraintTop_toBottomOf="@+id/movie_name"
                     android:layout_marginTop="4dp"
+                    android:text="@{detailViewModel.movieReleaseDate}"
                     tools:text="Release date:12-12-2018"
                     style="@style/medium_text"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/movie_language"
+                    android:text="@{detailViewModel.movieLanguage}"
                     app:layout_constraintStart_toStartOf="@+id/release_date"
                     app:layout_constraintTop_toBottomOf="@+id/release_date"
                     android:layout_marginTop="8dp" style="@style/medium_text"
@@ -59,20 +63,24 @@
                     android:id="@+id/movie_votes"
                     app:layout_constraintStart_toEndOf="@+id/movie_language"
                     android:layout_marginStart="8dp"
+                    android:text="@{detailViewModel.movieRating}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/movie_language"
                     app:layout_constraintEnd_toEndOf="@+id/movie_name"
                     android:layout_marginEnd="8dp"
                     tools:text="Likes:8.8" style="@style/medium_text"/>
+
             <TextView
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/movei_overview"
+                    android:text="@{detailViewModel.movieOverview}"
                     app:layout_constraintStart_toStartOf="@+id/movie_language"
                     app:layout_constraintEnd_toEndOf="@+id/movie_name"
                     app:layout_constraintTop_toBottomOf="@+id/movie_votes"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

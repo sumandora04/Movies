@@ -30,9 +30,9 @@ class OverviewAdapter(private val movieClickListener: MovieClickListener): ListA
             binding.movieData = movieItem
             binding.executePendingBindings()
 
-            Glide.with(binding.gridImageCell.context)
-                .load(movieItem.posterPath)
-                .into(binding.gridImageCell)
+//            Glide.with(binding.gridImageCell.context)
+//                .load(movieItem.posterPath)
+//                .into(binding.gridImageCell)
         }
 
         companion object{
